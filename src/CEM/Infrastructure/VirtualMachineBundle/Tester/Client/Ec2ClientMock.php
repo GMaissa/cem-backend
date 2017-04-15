@@ -15,6 +15,8 @@ use CEM\Infrastructure\VirtualMachineBundle\Client\Ec2ClientInterface;
 
 /**
  * AWS Ec2 client mock class
+ *
+ * @codeCoverageIgnore
  */
 class Ec2ClientMock implements Ec2ClientInterface
 {
