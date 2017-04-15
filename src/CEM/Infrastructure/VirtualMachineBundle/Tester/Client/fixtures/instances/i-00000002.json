@@ -1,0 +1,23 @@
+{
+    "InstanceId": "i-00000002",
+    "ImageId": "ami-a9d276c9",
+    "State": {"Code": "16", "Name": "running"},
+    "PrivateDnsName": "ip-10-0-0-2.us-west-2.compute.internal",
+    "PublicDnsName": "ip-192-168-1-2.us-west-2.compute.internal",
+    "InstanceType": "t2.nano",
+    "LaunchTime": "2017-02-08T08:55:32+00:00",
+    "Placement": {
+        "AvailabilityZone": "us-west-2b",
+        "GroupName": "",
+        "Tenancy": "default"
+    },
+    "PrivateIpAddress": "10.0.0.2",
+    "PublicIpAddress": "192.168.1.2",
+    "Tags": [
+        {"Key": "Name", "Value": "Test 2"},
+        {"Key": "environment", "Value": "development"},
+        {"Key": "auto-start", "Value": "1"},
+        {"Key": "keep-alive", "Value": "0"},
+        {"Key": "mailinglist", "Value": "projet-test2@test.com"}
+    ]
+}

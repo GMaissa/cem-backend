@@ -1,0 +1,26 @@
+CEM\Infrastructure\UserBundle\Model\User:
+    properties:
+        id:
+            type: string
+            since_version: 1.0
+        firstname:
+            type: string
+            since_version: 1.0
+        lastname:
+            type: string
+            since_version: 1.0
+        username:
+            type: string
+            since_version: 1.0
+        email:
+            type: string
+            since_version: 1.0
+        enabled:
+            type: boolean
+            since_version: 1.0
+        password:
+            type: string
+            since_version: 1.0
+        roles:
+            type: array
+            since_version: 1.0

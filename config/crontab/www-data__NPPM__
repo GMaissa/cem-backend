@@ -1,0 +1,10 @@
+MAILTO=##NOTIFCC##
+MAILFROM=##NOTIFFROM##
+SRCROOTDIR=##SRCROOTDIR##
+PHP=/usr/bin/php
+
+# Auto start instances taggued to be started automatically
+30 8 * * 1-5 cd $SRCROOTDIR && $PHP bin/console ec2-instances:update start --notify -q >> /tmp/cron_autostart_instances.log
+
+# Auto stop instances not taggued to be kept alive
+30 22 * * 1-5 cd $SRCROOTDIR && $PHP bin/console ec2-instances:update stop --notify -q >> /tmp/cron_autostop_instances.log

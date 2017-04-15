@@ -1,0 +1,9 @@
+version: '2'
+services:
+  engine:
+    volumes:
+      - cem-engine-sync:/var/www/html/project:rw
+
+volumes:
+  cem-engine-sync:
+    external: true

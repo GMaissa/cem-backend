@@ -1,0 +1,22 @@
+{
+    "name": "gmaissa/cem-domain-virtualmachine",
+    "description": "Cloud Environments Management VirtualMachine Domain Component",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Guillaume Maïssa",
+            "email": "pro.g@maissa.fr"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.1",
+        "phpunit/php-code-coverage": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "CEM\\Domain\\VirtualMachine\\": "."
+        }
+    }
+}

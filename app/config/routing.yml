@@ -1,0 +1,19 @@
+app_oauth_server:
+    host: "%host.oauth%"
+    resource: "@UiApiBundle/Resources/config/routing/oauth.yml"
+
+adb_api:
+    type:     "rest"
+    schemes:  ["http"]
+    host:     "%host.api%"
+    resource: "@UiApiBundle/Resources/config/routing/api.yml"
+
+NelmioApiDocBundle:
+    prefix:   "/doc"
+    schemes:  ["http"]
+    host:     "%host.doc%"
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+
+app:
+    resource: "@UiAppBundle/Controller/DefaultController.php"
+    type:     annotation

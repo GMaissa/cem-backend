@@ -1,0 +1,19 @@
+CEM\Infrastructure\OAuthBundle\Model\AuthCode:
+    type: entity
+    table: oauth2_auth_codes
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    manyToOne:
+        client:
+            targetEntity: CEM\Infrastructure\OAuthBundle\Model\Client
+            joinColumn:
+                name: client_id
+                referencedColumnName: id
+        user:
+            targetEntity: CEM\Infrastructure\UserBundle\Model\User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id

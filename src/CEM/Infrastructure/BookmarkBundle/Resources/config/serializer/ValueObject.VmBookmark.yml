@@ -1,0 +1,11 @@
+CEM\Domain\Bookmark\ValueObject\VmBookmark:
+    properties:
+        id:
+            type: string
+            since_version: 1.0
+        user:
+            type: string
+            since_version: 1.0
+        vmId:
+            type: string
+            since_version: 1.0

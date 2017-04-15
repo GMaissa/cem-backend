@@ -1,0 +1,135 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+parameters:
+    locale: en
+
+framework:
+    #esi:             ~
+    translator: ~
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        name:        "VMDBSSID"
+        handler_id:  "%session_handler%"
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+    fragments:       ~
+    http_method_override: true
+    assets: ~
+    php_errors:
+        log: true
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    globals:
+        host_dashboard: "%host.dashboard%"
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        server_version: 10.0
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    port:      "%mailer_port%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+fos_rest:
+    param_fetcher_listener: force
+    body_listener: true
+    format_listener: true
+    view:
+        empty_content: 204
+        mime_types:
+            json: ['application/json']
+        view_response_listener: 'force'
+        formats:
+            json : true
+        failed_validation: HTTP_BAD_REQUEST
+    routing_loader:
+        default_format: json
+        include_format: false
+    exception:
+        enabled: true
+    disable_csrf_role: ROLE_API
+    serializer:
+        serialize_null:  true
+
+nelmio_api_doc:
+    name: Cloud Environments Management Backend
+    sandbox:
+        accept_type:        "application/json"
+        body_format:
+            formats:        [ ]
+            default_format: "json"
+        request_format:
+            method: accept_header
+            formats:
+                json:       "application/json"
+        authentication:
+            delivery: http
+            type:     bearer
+
+nelmio_cors:
+    paths:
+        '^/':
+            origin_regex: true
+            allow_origin:
+                - "^http://%host.doc%"
+                - "^http://%host.dashboard%"
+                - "^http://%host.oauth%"
+                - "^http://localhost:[0-9]+"
+            allow_methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'DELETE', 'HEAD']
+            allow_headers: ['*']
+            allow_credentials: true
+            hosts: ['^api\.', '^oauth\.']
+
+aws:
+    version: latest
+    region: "%aws_region%"
+    credentials:
+        key: "%aws_key%"
+        secret: "%aws_secret%"
+
+jms_serializer:
+    property_naming:
+        separator:  ""
+        lower_case: true
+
+fos_oauth_server:
+    db_driver: orm
+    client_class: CEM\Infrastructure\OAuthBundle\Model\Client
+    access_token_class: CEM\Infrastructure\OAuthBundle\Model\AccessToken
+    refresh_token_class: CEM\Infrastructure\OAuthBundle\Model\RefreshToken
+    auth_code_class: CEM\Infrastructure\OAuthBundle\Model\AuthCode
+    service:
+        user_provider: vm_dashboard.user_provider

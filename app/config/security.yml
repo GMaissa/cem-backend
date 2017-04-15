@@ -1,0 +1,28 @@
+security:
+    encoders:
+        CEM\Infrastructure\UserBundle\Model\User:
+            algorithm: bcrypt
+            cost:      13
+
+    providers:
+        app:
+            id: vm_dashboard.user_provider
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        oauth_token:
+            host:       ^oauth\.
+            pattern:    ^/v2/token
+            security:   false
+
+        api:
+            host:       ^api\.
+            fos_oauth:  true
+            stateless:  true
+            anonymous:  false
+
+    access_control:
+        - { path: ^/, host: ^api\., roles: [ IS_AUTHENTICATED_FULLY ] }

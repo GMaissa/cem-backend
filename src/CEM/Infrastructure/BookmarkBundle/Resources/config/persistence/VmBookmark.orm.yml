@@ -1,0 +1,17 @@
+CEM\Domain\Bookmark\ValueObject\VmBookmark:
+  type: entity
+  table: vm_bookmark
+  repositoryClass: CEM\Infrastructure\BookmarkBundle\Repository\VmBookmarkRepository
+  id:
+    user:
+      associationKey: true
+    vmId:
+      type: string
+      column: vm_id
+      length: 50
+  manyToOne:
+      user:
+        targetEntity: CEM\Infrastructure\UserBundle\Model\User
+        joinColumn:
+          name: user_id
+          referencedColumnName: id

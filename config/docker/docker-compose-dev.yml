@@ -1,0 +1,38 @@
+version: '2'
+services:
+  db:
+    ports:
+        - "${PROJECT_PORT_PREFIX}3306:3306"
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+        - "${PROJECT_PORT_PREFIX}1080:1080"
+
+  engine:
+    depends_on:
+      - mailcatcher
+    volumes:
+      - "./engine/scripts:/scripts"
+    entrypoint: /scripts/entrypoint.sh
+    command: php-fpm7.1 -F
+    environment:
+      # BLACKFIRE profiling
+      BLACKFIRE_ENABLE: 1
+      # XDEBUG BROWSER debugging
+      XDEBUG_REMOTE_HOST: ${XDEBUG_REMOTE_HOST}
+      XDEBUG_IDEKEY: ${XDEBUG_IDEKEY}
+      # XDEBUG CLI debugging
+      XDEBUG_CONFIG: idekey=${XDEBUG_IDEKEY} remote_host=${XDEBUG_REMOTE_HOST}
+      PHP_IDE_CONFIG: serverName=localhost
+
+  nginx:
+    ports:
+        - "${PROJECT_PORT_PREFIX}0080:80"
+        - "${PROJECT_PORT_PREFIX}0443:443"
+
+  blackfire:
+    image: blackfire/blackfire
+    environment:
+      - 'BLACKFIRE_SERVER_ID'
+      - 'BLACKFIRE_SERVER_TOKEN'

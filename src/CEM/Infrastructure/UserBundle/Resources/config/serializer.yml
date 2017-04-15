@@ -1,0 +1,6 @@
+metadata:
+    auto_detection: true
+    directories:
+        Domain:
+            namespace_prefix: "CEM\\Infrastructure\\UserBundle"
+            path: "src/CEM/Infrastructure/UserBundle/Resources/config/serializer"

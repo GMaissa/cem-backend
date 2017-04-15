@@ -1,0 +1,7 @@
+orm:
+    mappings:
+        InfraOAuthBundle:
+            type: yml
+            prefix: CEM\Infrastructure\OAuthBundle\Model
+            dir: 'Resources/config/persistence'
+

@@ -1,0 +1,8 @@
+CEM\Infrastructure\OAuthBundle\Model\Client:
+    type: entity
+    table: oauth2_clients
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO

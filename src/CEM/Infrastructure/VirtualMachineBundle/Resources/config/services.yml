@@ -1,0 +1,40 @@
+parameters:
+    vm_dashboard.vm.repository.ec2.class: CEM\Infrastructure\VirtualMachineBundle\Repository\Ec2VmRepository
+    vm_dashboard.vm.ec2_client.class: CEM\Infrastructure\VirtualMachineBundle\Client\Wrapper\Ec2ClientWrapper
+    vm_dashboard.vm.factory.class: CEM\Infrastructure\VirtualMachineBundle\Factory\Ec2VmFactory
+    vm_dashboard.vm.subscriber.notification.class: CEM\Infrastructure\VirtualMachineBundle\EventSubscriber\VmNotificationSubscriber
+    vm_dashboard.vm.model.class: "\\CEM\\Domain\\VirtualMachine\\Model\\VirtualMachine"
+
+services:
+    vm_dashboard.vm.ec2_client:
+        class: "%vm_dashboard.vm.ec2_client.class%"
+        calls:
+            - [setClient, ["@aws.ec2"]]
+
+    vm_dashboard.vm.repository:
+        alias: vm_dashboard.vm.repository.ec2
+
+    vm_dashboard.vm.factory:
+        class: "%vm_dashboard.vm.factory.class%"
+        calls:
+            - [setVmClass, ["%vm_dashboard.vm.model.class%"]]
+            - [setEventDispatcher, ["@event_dispatcher"]]
+
+    vm_dashboard.vm.repository.ec2:
+        class: "%vm_dashboard.vm.repository.ec2.class%"
+        public: false
+        calls:
+            - [setApiClient, ["@vm_dashboard.vm.ec2_client"]]
+            - [setEventDispatcher, ["@event_dispatcher"]]
+            - [setVmFactory, ["@vm_dashboard.vm.factory"]]
+
+    vm_dashboard.vm.subscriber.notification:
+        class: "%vm_dashboard.vm.subscriber.notification.class%"
+        arguments:
+            - "%notification%"
+        calls:
+            - [setMailerService, ["@vm_dashboard.mail.service"]]
+            - [setTplEngine, ["@templating"]]
+            - [setSecurityTokenStorage, ["@security.token_storage"]]
+        tags:
+            - { name: kernel.event_subscriber }

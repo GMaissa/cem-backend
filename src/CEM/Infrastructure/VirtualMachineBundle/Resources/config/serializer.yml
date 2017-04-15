@@ -1,0 +1,6 @@
+metadata:
+    auto_detection: true
+    directories:
+        Domain:
+            namespace_prefix: "CEM\\Domain\\VirtualMachine"
+            path: "src/CEM/Infrastructure/VirtualMachineBundle/Resources/config/serializer"

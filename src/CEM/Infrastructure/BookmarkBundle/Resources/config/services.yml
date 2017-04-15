@@ -1,0 +1,29 @@
+parameters:
+    vm_dashboard.bookmark.repository.db.class: CEM\Infrastructure\BookmarkBundle\Repository\VmBookmarkRepository
+    vm_dashboard.bookmark.factory.class: CEM\Domain\Bookmark\Factory\VmBookmarkFactory
+    vm_dashboard.bookmark.model.class: CEM\Domain\Bookmark\ValueObject\VmBookmark
+    vm_dashboard.bookmark.listener.vm_load.class: CEM\Infrastructure\BookmarkBundle\EventListener\VmLoadedListener
+
+services:
+    vm_dashboard.bookmark.repository:
+        alias: vm_dashboard.bookmark.repository.db
+
+    vm_dashboard.bookmark.repository.db:
+        class: "%vm_dashboard.bookmark.repository.db.class%"
+        public: false
+        factory: ["@doctrine.orm.entity_manager", "getRepository"]
+        arguments:
+            - "%vm_dashboard.bookmark.model.class%"
+
+    vm_dashboard.bookmark.factory:
+        class: "%vm_dashboard.bookmark.factory.class%"
+        calls:
+            - [setBookmarkClass, ["%vm_dashboard.bookmark.model.class%"]]
+
+    vm_dashboard.bookmark.listener.vm_load:
+        class: "%vm_dashboard.bookmark.listener.vm_load.class%"
+        calls:
+            - [setSecurityTokenStorage, ["@security.token_storage"]]
+            - [setBookmarkRepository, ["@vm_dashboard.bookmark.repository"]]
+        tags:
+            - { name: kernel.event_listener, event: vm_dashboard.vm.post_load, method: onVmPostLoad }

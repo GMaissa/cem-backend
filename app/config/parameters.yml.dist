@@ -1,0 +1,30 @@
+parameters:
+    # A secret key that's used to generate certain security-related tokens
+    secret: "thisIsATestSecretKeyChangeItForCriticalEnvs"
+
+    session_handler: session.handler.native_file
+
+    database_host: localhost
+    database_port: 3306
+    database_name: vm_dashboard
+    database_user: symfony
+    database_password: symfony
+
+    mailer_transport: smtp
+    mailer_host: mailcatcher
+    mailer_port: 1025
+    mailer_user: null
+    mailer_password: null
+
+    aws_region: us-west-2
+    aws_key: "key"
+    aws_secret: "secret"
+
+    host.api: api.cem.local
+    host.doc: developers.cem.local
+    host.dashboard: dashboard.cem.local
+    host.oauth: oauth.cem.local
+
+    notification:
+        from : test@test.com
+        cc: test@test.com

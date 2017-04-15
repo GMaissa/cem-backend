@@ -1,0 +1,35 @@
+CEM\Domain\VirtualMachine\Model\VirtualMachine:
+    properties:
+        id:
+            type: string
+            since_version: 1.0
+        name:
+            type: string
+            since_version: 1.0
+        type:
+            type: string
+            since_version: 1.0
+        state:
+            type: string
+            since_version: 1.0
+        az:
+            type: string
+            since_version: 1.0
+        privateIp:
+            type: string
+            since_version: 1.0
+        publicIp:
+            type: string
+            since_version: 1.0
+        mailingList:
+            type: array
+            since_version: 1.0
+        keepAlive:
+            type: boolean
+            since_version: 1.0
+        autoStart:
+            type: boolean
+            since_version: 1.0
+        isInBookmarks:
+            type: boolean
+            since_version: 1.0

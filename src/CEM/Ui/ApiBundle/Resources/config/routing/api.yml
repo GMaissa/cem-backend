@@ -1,0 +1,9 @@
+instances:
+    type: "rest"
+    resource: "@UiApiBundle/Controller/VmController.php"
+    name_prefix:  "api_"
+
+favorites:
+    type: "rest"
+    resource: "@UiApiBundle/Controller/VmBookmarksController.php"
+    name_prefix:  "api_"

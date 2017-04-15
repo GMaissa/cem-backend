@@ -1,0 +1,8 @@
+parameters:
+    vm_dashboard.mail.service.class: CEM\Infrastructure\MailBundle\Service\MailerService
+
+services:
+    vm_dashboard.mail.service:
+        class: "%vm_dashboard.mail.service.class%"
+        calls:
+            - [setMailer, ["@mailer"]]

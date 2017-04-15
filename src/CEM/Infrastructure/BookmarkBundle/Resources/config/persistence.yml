@@ -1,0 +1,7 @@
+orm:
+    mappings:
+        InfraBookmarkBundle:
+            type: yml
+            prefix: CEM\Domain\Bookmark\ValueObject
+            dir: 'Resources/config/persistence'
+

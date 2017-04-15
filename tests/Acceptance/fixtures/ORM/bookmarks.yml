@@ -1,0 +1,5 @@
+CEM\Domain\Bookmark\ValueObject\VmBookmark:
+    bookmark:
+        __construct:
+          - '@user'
+          - i-00000001

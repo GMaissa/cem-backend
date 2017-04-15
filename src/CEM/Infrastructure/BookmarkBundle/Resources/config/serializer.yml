@@ -1,0 +1,6 @@
+metadata:
+    auto_detection: true
+    directories:
+        Domain:
+            namespace_prefix: "CEM\\Domain\\Bookmark"
+            path: "src/CEM/Infrastructure/BookmarkBundle/Resources/config/serializer"

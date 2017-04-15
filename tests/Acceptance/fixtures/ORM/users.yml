@@ -1,0 +1,9 @@
+CEM\Infrastructure\UserBundle\Model\User:
+    user:
+        username: test
+        email: test@test.com
+        enabled: true
+        password: "$2y$13$GPreSPol/hgQOzIhh2paIewWvMGJRX/tMrE8TfqHQ5NmBa.meL1x."
+        roles: []
+        firstname: Te
+        lastname: St

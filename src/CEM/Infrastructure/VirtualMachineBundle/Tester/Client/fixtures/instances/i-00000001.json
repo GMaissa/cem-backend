@@ -1,0 +1,22 @@
+{
+    "InstanceId": "i-00000001",
+    "ImageId": "ami-a9d276c9",
+    "State": {"Code": "80", "Name": "stopped"},
+    "PrivateDnsName": "ip-10-0-0-1.us-west-2.compute.internal",
+    "PublicDnsName": "",
+    "InstanceType": "t2.nano",
+    "LaunchTime": "2017-02-08T08:55:32+00:00",
+    "Placement": {
+        "AvailabilityZone": "us-west-2b",
+        "GroupName": "",
+        "Tenancy": "default"
+    },
+    "PrivateIpAddress": "10.0.0.1",
+    "Tags": [
+        {"Key": "environment", "Value": "development"},
+        {"Key": "auto-start", "Value": "1"},
+        {"Key": "mailinglist", "Value": "projet-test1@test.com"},
+        {"Key": "Name", "Value": "Test 1"},
+        {"Key": "keep-alive", "Value": "0"}
+    ]
+}

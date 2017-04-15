@@ -1,0 +1,34 @@
+default:
+    extensions:
+        Behat\Symfony2Extension:
+
+        Behat\MinkExtension:
+            base_url: http://api.cem.local
+            sessions:
+                default:
+                    symfony2: ~
+        Behatch\Extension: ~
+        GMaissa\BehatContextsExtension: ~
+        Fidry\AliceBundleExtension\Extension:
+            fixtures_base_path: %paths.base%/tests/Acceptance/fixtures
+
+    suites:
+        api:
+            paths:
+                - %paths.base%/tests/Acceptance/features/API
+            contexts:
+                - Fidry\AliceBundleExtension\Context\Doctrine\AliceORMContext
+                - Behat\MinkExtension\Context\MinkContext
+                - CEM\Tests\Acceptance\Context\MailContext
+                - gm:context:oauth:
+                    serverUrl: http://oauth.cem.local/v2/token
+                    clientId: 1_2s9gmnszs82so0c0so440k4o44g0cgs4oscsk884g0ww04ggko
+                    clientSecret: 5cg9wo8qqsg0sg08gkgwgw8kgscg8wo8ww88c0444ock4gwws
+                - behatch:context:rest
+                - behatch:context:json
+        commands:
+            paths:
+                - %paths.base%/tests/Acceptance/features/Commands
+            contexts:
+                - CEM\Tests\Acceptance\Context\CommandContext
+                - CEM\Tests\Acceptance\Context\MailContext

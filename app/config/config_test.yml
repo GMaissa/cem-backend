@@ -1,0 +1,27 @@
+imports:
+    - { resource: config_dev.yml }
+
+framework:
+    test: ~
+    session:
+        storage_id: session.storage.mock_file
+    profiler:
+        collect: false
+
+web_profiler:
+    toolbar: false
+    intercept_redirects: false
+
+parameters:
+    vm_dashboard.vm.ec2_client.class: CEM\Infrastructure\VirtualMachineBundle\Tester\Client\Ec2ClientMock
+    database_name: vm_dashboard_test
+    host.api: api.cem.local
+    host.doc: developers.cem.local
+    host.dashboard: 'dashboard.cem.local:11080'
+    host.oauth: oauth.cem.local
+
+swiftmailer:
+    disable_delivery: true
+    spool:
+        type: file
+        path: "%kernel.cache_dir%/spool"

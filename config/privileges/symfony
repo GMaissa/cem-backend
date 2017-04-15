@@ -1,0 +1,20 @@
+#User  alias specification
+User_Alias  DEVS  = symfony
+User_Alias  ADMIN = symfony
+
+Runas_Alias SERVERACCOUNTS=www-data
+
+# Cmnd alias specification
+Cmnd_Alias  NGINX            = /bin/service nginx stop, /bin/service nginx start, /bin/service nginx restart, /bin/service nginx status
+Cmnd_Alias  PHP5FPM          = /bin/service php5-fpm stop, /bin/service php5-fpm start, /bin/service php5-fpm restart, /bin/service php5-fpm status
+Cmnd_Alias  VARNISH          = /bin/service varnish stop, /bin/service varnish start, /bin/service varnish restart, /bin/service varnish status
+Cmnd_Alias  MYSQL            = /bin/service mysql stop, /bin/service mysql start, /bin/service mysql restart, /bin/service mysql status
+Cmnd_Alias  PERMS_SFCACHE    = /bin/chmod -R g+w var/cache, /bin/chgrp -R www-data var/cache
+Cmnd_Alias  PERMS_SFLOGS     = /bin/chmod -R g+w var/logs, /bin/chgrp -R www-data var/logs
+Cmnd_Alias  PERMS_SFSESSIONS = /bin/chmod -R g+w var/sessions, /bin/chgrp -R www-data var/sessions
+Cmnd_Alias  PERMS_SFWEB      = /bin/chmod -R g+w web, /bin/chgrp -R www-data web
+
+# User privilege specification
+DEVS    ALL=NOPASSWD: NGINX, PHP5FPM, VARNISH, MYSQL, PERMS_SFCACHE, PERMS_SFLOGS, PERMS_SFSESSIONS, PERMS_SFWEB
+DEVS    ALL=(SERVERACCOUNTS) NOPASSWD: ALL
+ADMIN   ALL=NOPASSWD: ALL

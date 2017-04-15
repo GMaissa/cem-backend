@@ -1,0 +1,13 @@
+php_version: 7
+
+exclude_patterns:
+    - web/app*.php
+    - src/**/Tests/**
+
+rules:
+    symfony.configuration.error_pages_should_be_customised:
+        enabled: false
+    web.default_favicon:
+        enabled: false
+    web.missing_favicon:
+        enabled: false

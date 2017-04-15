@@ -1,0 +1,72 @@
+language: php
+
+php:
+  - '7.0'
+  - '7.1'
+  - nightly
+
+env:
+  global:
+    - COVERAGE=false
+    - PHPUNIT_ARGS=''
+    - SYMFONY_ENV=ci
+
+services:
+  - mysql
+
+addons:
+  apt:
+    packages:
+      - nginx
+      - realpath
+  hosts:
+    - api.dashboard.local
+    - developers.dashboard.local
+    - oauth.dashboard.local
+    - www.dashboard.local
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: nightly
+  include:
+    - php: '7.1'
+      env:
+        - COVERAGE=true
+        - PHPUNIT_ARGS="--coverage-text --coverage-clover=build/coverage.xml"
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - vendor
+
+before_install:
+  - composer self-update
+
+install:
+  - travis_retry composer install --no-interaction
+
+before_script:
+  - |
+    if [ "${COVERAGE}" == 'true' ]; then
+      mkdir -p build
+      wget https://scrutinizer-ci.com/ocular.phar
+    fi
+  - ./config/ci/setup-ci.sh
+  - php bin/console do:sc:cr -e=ci
+
+script:
+  - php vendor/bin/phpunit ${PHPUNIT_ARGS}
+  - php vendor/bin/behat -c behat.ci.yml -f progress -vv
+
+after_script:
+  - cat var/logs/ci.log
+  - |
+    if [ "${COVERAGE}" == 'true' ]; then
+      travis_retry php ocular.phar code-coverage:upload --format=php-clover build/coverage.xml
+    fi
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change

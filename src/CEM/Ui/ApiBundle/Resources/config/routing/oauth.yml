@@ -1,0 +1,11 @@
+fos_oauth_server_token:
+    path: "/v2/token"
+    methods: [GET, POST]
+    defaults:
+        _controller: fos_oauth_server.controller.token:tokenAction
+
+fos_oauth_server_authorize:
+    path: "/v2/auth"
+    methods: [GET, POST]
+    defaults:
+        _controller: FOSOAuthServerBundle:Authorize:authorize

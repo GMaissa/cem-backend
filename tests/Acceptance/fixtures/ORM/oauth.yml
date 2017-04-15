@@ -1,0 +1,10 @@
+CEM\Infrastructure\OAuthBundle\Model\Client:
+    client:
+        id: 1
+        random_id: '2s9gmnszs82so0c0so440k4o44g0cgs4oscsk884g0ww04ggko'
+        redirect_uris:
+          - http://localhost
+        secret: '5cg9wo8qqsg0sg08gkgwgw8kgscg8wo8ww88c0444ock4gwws'
+        allowed_grant_types:
+          - password
+          - refresh_token
