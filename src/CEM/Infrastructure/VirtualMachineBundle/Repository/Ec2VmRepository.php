@@ -13,7 +13,6 @@ namespace CEM\Infrastructure\VirtualMachineBundle\Repository;
 
 use CEM\Domain\VirtualMachine\Exception\VmNotFoundException;
 use CEM\Domain\VirtualMachine\Factory\VmFactoryInterface;
-use CEM\Domain\VirtualMachine\Model\VirtualMachine;
 use CEM\Domain\VirtualMachine\Model\VirtualMachineInterface;
 use CEM\Domain\VirtualMachine\Repository\VmRepositoryInterface;
 use CEM\Infrastructure\VirtualMachineBundle\Client\Ec2ClientInterface;

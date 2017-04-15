@@ -11,7 +11,8 @@
 
 namespace CEM\Infrastructure\VirtualMachineBundle\Tests\Repository;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use CEM\Infrastructure\VirtualMachineBundle\Factory\Ec2VmFactory;
+use PHPUnit\Framework\TestCase;
 use CEM\Domain\VirtualMachine\Model\VirtualMachine;
 use CEM\Infrastructure\VirtualMachineBundle\Repository\Ec2VmRepository;
 use CEM\Infrastructure\VirtualMachineBundle\Tester\Client\Ec2ClientMock;
@@ -19,28 +20,27 @@ use CEM\Infrastructure\VirtualMachineBundle\Tester\Client\Ec2ClientMock;
 /**
  * Test class for Ec2 virtual machine repository
  */
-class Ec2VmRepositoryTest extends KernelTestCase
+class Ec2VmRepositoryTest extends TestCase
 {
-    private $apiClient;
-    private $vmFactory;
-    private $container;
-    private $eventDispatcher;
+    private $repository;
 
     protected function setUp()
     {
-        parent::setUp();
-        self::bootKernel();
+        $eventDispatcher = $this->getMockBuilder('\Symfony\Component\EventDispatcher\EventDispatcherInterface')
+            ->disableOriginalConstructor()
+            ->setMethods([
+                'dispatch', 'addListener', 'addSubscriber', 'removeListener', 'removeSubscriber',
+                'getListeners', 'getListenerPriority','hasListeners'
+            ])
+            ->getMock();
+        $vmFactory = new Ec2VmFactory();
+        $vmFactory->setVmClass('CEM\Domain\VirtualMachine\Model\VirtualMachine');
+        $vmFactory->setEventDispatcher($eventDispatcher);
 
-        $this->apiClient = new Ec2ClientMock();
-        $this->container = static::$kernel->getContainer();
-        $this->vmFactory = $this->container->get('vm_dashboard.vm.factory');
-        $this->eventDispatcher = $this->getMockBuilder('\Symfony\Component\EventDispatcher\EventDispatcherInterface')
-                                      ->disableOriginalConstructor()
-                                      ->setMethods([
-                                          'dispatch', 'addListener', 'addSubscriber', 'removeListener', 'removeSubscriber',
-                                          'getListeners', 'getListenerPriority','hasListeners'
-                                      ])
-                                      ->getMock();
+        $this->repository = new Ec2VmRepository();
+        $this->repository->setApiClient(new Ec2ClientMock());
+        $this->repository->setVmFactory($vmFactory);
+        $this->repository->setEventDispatcher($eventDispatcher);
     }
 
     /**
@@ -48,16 +48,15 @@ class Ec2VmRepositoryTest extends KernelTestCase
      */
     public function testFindAll($expectedResult)
     {
-        $repository = $this->initRepository();
-        $result = $repository->findAll();
+        $result = $this->repository->findAll();
 
         $this->assertEquals($expectedResult, $result);
     }
 
     public function provideFindAll()
     {
-        return array(
-            array(
+        return [
+            [
                 [
                     new VirtualMachine(
                         [
@@ -94,8 +93,8 @@ class Ec2VmRepositoryTest extends KernelTestCase
                         ]
                     )
                 ]
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -103,16 +102,15 @@ class Ec2VmRepositoryTest extends KernelTestCase
      */
     public function testFindBy($filters, $expectedResult)
     {
-        $repository = $this->initRepository();
-        $result = $repository->findBy($filters);
+        $result = $this->repository->findBy($filters);
 
         $this->assertEquals($expectedResult, $result);
     }
 
     public function provideFindBy()
     {
-        return array(
-            array(
+        return [
+            [
                 ['keepAlive' => true],
                 [
                     new VirtualMachine(
@@ -133,8 +131,8 @@ class Ec2VmRepositoryTest extends KernelTestCase
                         ]
                     )
                 ]
-            ),
-            array(
+            ],
+            [
                 ['autoStart' => true],
                 [
                     new VirtualMachine(
@@ -155,8 +153,8 @@ class Ec2VmRepositoryTest extends KernelTestCase
                         ]
                     )
                 ]
-            ),
-            array(
+            ],
+            [
                 ['states' => [VirtualMachine::STATE_STARTED]],
                 [
                     new VirtualMachine(
@@ -177,8 +175,8 @@ class Ec2VmRepositoryTest extends KernelTestCase
                         ]
                     )
                 ]
-            ),
-            array(
+            ],
+            [
                 ['vmTypes' => ['development']],
                 [
                     new VirtualMachine(
@@ -199,8 +197,8 @@ class Ec2VmRepositoryTest extends KernelTestCase
                         ]
                     )
                 ]
-            ),
-            array(
+            ],
+            [
                 ['vmIds' => ['i-00000001']],
                 [
                     new VirtualMachine(
@@ -221,8 +219,8 @@ class Ec2VmRepositoryTest extends KernelTestCase
                         ]
                     )
                 ]
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -231,8 +229,7 @@ class Ec2VmRepositoryTest extends KernelTestCase
     public function testFindException($instanceId, $expectedException)
     {
         $this->expectException($expectedException);
-        $repository = $this->initRepository();
-        $repository->find($instanceId);
+        $this->repository->find($instanceId);
     }
 
     public function provideFindException()
@@ -250,8 +247,7 @@ class Ec2VmRepositoryTest extends KernelTestCase
      */
     public function testFind($instanceId, $expectedResult)
     {
-        $repository = $this->initRepository();
-        $result = $repository->find($instanceId);
+        $result = $this->repository->find($instanceId);
 
         $this->assertEquals($expectedResult, $result);
     }
@@ -308,8 +304,7 @@ class Ec2VmRepositoryTest extends KernelTestCase
 //    public function testUpdateStateException($instanceId, $action, $expectedException)
 //    {
 //        $this->expectException($expectedException);
-//        $repository = $this->initRepository();
-//        $vm = $repository->find($instanceId);
+//        $vm = $this->repository->find($instanceId);
 //        $repository->updateState($vm, $action);
 //    }
 
@@ -334,8 +329,7 @@ class Ec2VmRepositoryTest extends KernelTestCase
      */
 //    public function testUpdateState($instanceId, $action, $expectedResults)
 //    {
-//        $repository = $this->initRepository();
-//        $vm = $repository->find($instanceId);
+//        $vm = $this->repository->find($instanceId);
 //        $repository->updateState($vm, $action);
 //        foreach ($expectedResults as $method => $result) {
 //            $this->assertEquals($result, $vm->{$method}());
@@ -364,14 +358,5 @@ class Ec2VmRepositoryTest extends KernelTestCase
                 ]
             ]
         ];
-    }
-    protected function initRepository()
-    {
-        $repository = new Ec2VmRepository();
-        $repository->setApiClient($this->apiClient);
-        $repository->setVmFactory($this->vmFactory);
-        $repository->setEventDispatcher($this->eventDispatcher);
-
-        return $repository;
     }
 }
