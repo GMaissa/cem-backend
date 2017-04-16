@@ -1,7 +1,7 @@
 parameters:
     vm_dashboard.vm.repository.ec2.class: CEM\Infrastructure\VirtualMachineBundle\Repository\Ec2VmRepository
     vm_dashboard.vm.ec2_client.class: CEM\Infrastructure\VirtualMachineBundle\Client\Wrapper\Ec2ClientWrapper
-    vm_dashboard.vm.factory.class: CEM\Infrastructure\VirtualMachineBundle\Factory\Ec2VmFactory
+    vm_dashboard.vm.factory.ec2.class: CEM\Infrastructure\VirtualMachineBundle\Factory\Ec2VmFactory
     vm_dashboard.vm.subscriber.notification.class: CEM\Infrastructure\VirtualMachineBundle\EventSubscriber\VmNotificationSubscriber
     vm_dashboard.vm.model.class: "\\CEM\\Domain\\VirtualMachine\\Model\\VirtualMachine"
 
@@ -14,8 +14,8 @@ services:
     vm_dashboard.vm.repository:
         alias: vm_dashboard.vm.repository.ec2
 
-    vm_dashboard.vm.factory:
-        class: "%vm_dashboard.vm.factory.class%"
+    vm_dashboard.vm.factory.ec2:
+        class: "%vm_dashboard.vm.factory.ec2.class%"
         calls:
             - [setVmClass, ["%vm_dashboard.vm.model.class%"]]
             - [setEventDispatcher, ["@event_dispatcher"]]
@@ -26,7 +26,7 @@ services:
         calls:
             - [setApiClient, ["@vm_dashboard.vm.ec2_client"]]
             - [setEventDispatcher, ["@event_dispatcher"]]
-            - [setVmFactory, ["@vm_dashboard.vm.factory"]]
+            - [setVmFactory, ["@vm_dashboard.vm.factory.ec2"]]
 
     vm_dashboard.vm.subscriber.notification:
         class: "%vm_dashboard.vm.subscriber.notification.class%"
