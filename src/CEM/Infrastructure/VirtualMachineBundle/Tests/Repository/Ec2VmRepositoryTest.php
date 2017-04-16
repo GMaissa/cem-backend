@@ -327,14 +327,15 @@ class Ec2VmRepositoryTest extends TestCase
     /**
      * @dataProvider provideUpdateState
      */
-//    public function testUpdateState($instanceId, $action, $expectedResults)
-//    {
-//        $vm = $this->repository->find($instanceId);
-//        $repository->updateState($vm, $action);
-//        foreach ($expectedResults as $method => $result) {
-//            $this->assertEquals($result, $vm->{$method}());
-//        }
-//    }
+    public function testSave($instanceId, $action, $expectedResults)
+    {
+        $vm = $this->repository->find($instanceId);
+        $vm->{$action}();
+        $this->repository->save($vm);
+        foreach ($expectedResults as $method => $result) {
+            $this->assertEquals($result, $vm->{$method}());
+        }
+    }
 
     public function provideUpdateState()
     {
