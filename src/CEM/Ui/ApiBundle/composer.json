@@ -1,0 +1,46 @@
+{
+    "name": "gmaissa/cem-ui-api-bundle",
+    "description": "Cloud Environments Management API UI Bundle",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Guillaume Maïssa",
+            "email": "pro.g@maissa.fr"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/GMaissa/cem-domain-bookmark.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/GMaissa/cem-domain-user.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/GMaissa/cem-domain-virtualmachine.git"
+        }
+    ],
+    "require": {
+        "friendsofsymfony/rest-bundle": "^2.1",
+        "gmaissa/cem-domain-bookmark": "dev-master@dev",
+        "gmaissa/cem-domain-user": "dev-master@dev",
+        "gmaissa/cem-domain-virtualmachine": "dev-master@dev",
+        "jms/serializer-bundle": "^1.4",
+        "nelmio/api-doc-bundle": "^2.9",
+        "symfony/http-foundation": "^3.2",
+        "symfony/http-kernel": "^3.2",
+        "symfony/validator": "^3.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.1",
+        "phpunit/php-code-coverage": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "CEM\\Ui\\ApiBundle\\": "."
+        }
+    }
+}
