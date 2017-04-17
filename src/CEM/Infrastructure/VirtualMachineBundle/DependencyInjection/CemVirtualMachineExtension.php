@@ -30,8 +30,19 @@ class CemVirtualMachineExtension extends Extension implements PrependExtensionIn
      */
     public function load(array $configs, ContainerBuilder $container)
     {
+        $processor     = new Processor();
+        $configuration = new Configuration();
+        $config        = $processor->processConfiguration($configuration, $configs);
+
+        $container->setParameter('cem_virtualmachine.notification', $config['notification']);
+
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
+
+        $container->setAlias(
+            'vm_dashboard.vm.repository',
+            sprintf("vm_dashboard.vm.repository.%s", $config['cloud_provider'])
+        );
     }
 
     /**

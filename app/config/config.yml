@@ -133,3 +133,6 @@ fos_oauth_server:
     auth_code_class: CEM\Infrastructure\OAuthBundle\Model\AuthCode
     service:
         user_provider: vm_dashboard.user_provider
+
+cem_virtual_machine:
+    notification: "%notification%"

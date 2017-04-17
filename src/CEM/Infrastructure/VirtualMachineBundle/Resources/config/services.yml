@@ -11,9 +11,6 @@ services:
         calls:
             - [setClient, ["@aws.ec2"]]
 
-    vm_dashboard.vm.repository:
-        alias: vm_dashboard.vm.repository.ec2
-
     vm_dashboard.vm.factory.ec2:
         class: "%vm_dashboard.vm.factory.ec2.class%"
         calls:
