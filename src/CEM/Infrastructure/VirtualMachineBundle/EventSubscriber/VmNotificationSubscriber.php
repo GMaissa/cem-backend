@@ -139,7 +139,7 @@ class VmNotificationSubscriber implements EventSubscriberInterface
                     ->setCc($this->notificationConfig['cc'])
                     ->setBody(
                         $this->tplEngine->render(
-                            sprintf('InfraVirtualMachineBundle:emails:%s', $tpl),
+                            sprintf('CemVirtualMachineBundle:emails:%s', $tpl),
                             array(
                                 'instance' => $virtualMachine,
                                 'user'     => $user

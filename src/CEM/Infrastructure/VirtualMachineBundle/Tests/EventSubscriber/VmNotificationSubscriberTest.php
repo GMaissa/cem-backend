@@ -152,7 +152,7 @@ class VmNotificationSubscriberTest extends TestCase
                 ),
                 null,
                 'Novactive Hosting : Project platform Test 1 stopped',
-                'InfraVirtualMachineBundle:emails:instanceStopped.text.twig',
+                'CemVirtualMachineBundle:emails:instanceStopped.text.twig',
                 'vm-i-00000001-stopped'
             ],
             [
@@ -175,7 +175,7 @@ class VmNotificationSubscriberTest extends TestCase
                 ),
                 new \stdClass(),
                 'Novactive Hosting : Project platform Test 1 stopped',
-                'InfraVirtualMachineBundle:emails:instanceStopped.text.twig',
+                'CemVirtualMachineBundle:emails:instanceStopped.text.twig',
                 'vm-i-00000001-stopped'
             ],
             [
@@ -198,7 +198,7 @@ class VmNotificationSubscriberTest extends TestCase
                 ),
                 null,
                 'Novactive Hosting : Project platform Test 2 started',
-                'InfraVirtualMachineBundle:emails:instanceStarted.text.twig',
+                'CemVirtualMachineBundle:emails:instanceStarted.text.twig',
                 'vm-i-00000002-started'
             ],
             [
@@ -221,7 +221,7 @@ class VmNotificationSubscriberTest extends TestCase
                 ),
                 new \stdClass(),
                 'Novactive Hosting : Project platform Test 2 started',
-                'InfraVirtualMachineBundle:emails:instanceStarted.text.twig',
+                'CemVirtualMachineBundle:emails:instanceStarted.text.twig',
                 'vm-i-00000002-started'
             ]
         ];
