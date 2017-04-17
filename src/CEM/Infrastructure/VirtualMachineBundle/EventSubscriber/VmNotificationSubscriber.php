@@ -11,12 +11,12 @@
 
 namespace CEM\Infrastructure\VirtualMachineBundle\EventSubscriber;
 
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use CEM\Infrastructure\MailBundle\Service\MailerService;
 use CEM\Infrastructure\UserBundle\Model\User;
 use CEM\Infrastructure\VirtualMachineBundle\Event\VmStateUpdateEvent;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
  * VirtualMachine listener for notification
@@ -118,10 +118,8 @@ class VmNotificationSubscriber implements EventSubscriberInterface
     public function notifyVmStateChange(VmStateUpdateEvent $event)
     {
         $virtualMachine = $event->getVm();
-        $user           = null;
-        if (!is_null($this->tokenStorage->getToken())) {
-            $user = $this->tokenStorage->getToken()->getUser();
-        }
+        $user           = $this->getCurrentUser();
+
 
         if ($virtualMachine->getMailingList()) {
             $tpl           = 'instanceStopped.text.twig';

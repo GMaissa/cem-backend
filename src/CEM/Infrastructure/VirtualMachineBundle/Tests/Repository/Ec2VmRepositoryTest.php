@@ -299,32 +299,6 @@ class Ec2VmRepositoryTest extends TestCase
     }
 
     /**
-     * @dataProvider provideUpdateStateException
-     */
-//    public function testUpdateStateException($instanceId, $action, $expectedException)
-//    {
-//        $this->expectException($expectedException);
-//        $vm = $this->repository->find($instanceId);
-//        $repository->updateState($vm, $action);
-//    }
-
-    public function provideUpdateStateException()
-    {
-        return [
-            [
-                'i-00000001',
-                'stop',
-                '\Domain\VirtualMachine\Exception\VmStateUpdateException'
-            ],
-            [
-                'i-00000002',
-                'start',
-                '\Domain\VirtualMachine\Exception\VmStateUpdateException'
-            ]
-        ];
-    }
-
-    /**
      * @dataProvider provideUpdateState
      */
     public function testSave($instanceId, $action, $expectedResults)
