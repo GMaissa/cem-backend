@@ -23,4 +23,4 @@ monolog:
             channels: [!event, !doctrine]
 
 parameters:
-    vm_dashboard.vm.ec2_client.class: CEM\Infrastructure\VirtualMachineBundle\Tester\Client\Ec2ClientMock
+    cem_virtual_machine.vm.ec2_client.class: CEM\Infrastructure\VirtualMachineBundle\Tester\Client\Ec2ClientMock

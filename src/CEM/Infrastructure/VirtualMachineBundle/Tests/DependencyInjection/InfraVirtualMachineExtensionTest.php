@@ -60,11 +60,11 @@ class InfraVirtualMachineExtensionTest extends TestCase
                 [
                     'parameters'    => [],
                     'services' => [
-                        'vm_dashboard.vm.ec2_client',
-                        'vm_dashboard.vm.repository',
-                        'vm_dashboard.vm.factory.ec2',
-                        'vm_dashboard.vm.repository.ec2',
-                        'vm_dashboard.vm.subscriber.notification',
+                        'cem_virtual_machine.vm.ec2_client',
+                        'cem_virtual_machine.vm.repository',
+                        'cem_virtual_machine.vm.factory.ec2',
+                        'cem_virtual_machine.vm.repository.ec2',
+                        'cem_virtual_machine.vm.subscriber.notification',
                     ]
                 ]
             ],

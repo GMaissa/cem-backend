@@ -1,16 +1,16 @@
 parameters:
-    vm_dashboard.repository.user.orm.class: CEM\Infrastructure\UserBundle\Repository\DoctrineUserRepository
-    vm_dashboard.model.user.class: CEM\Infrastructure\UserBundle\Model\User
-    vm_dashboard.user_provider.class: CEM\Infrastructure\UserBundle\Security\Provider\UserProvider
+    cem_user.repository.user.orm.class: CEM\Infrastructure\UserBundle\Repository\DoctrineUserRepository
+    cem_user.model.user.class: CEM\Infrastructure\UserBundle\Model\User
+    cem_user.user_provider.class: CEM\Infrastructure\UserBundle\Security\Provider\UserProvider
 
 services:
-    vm_dashboard.repository.user.orm:
-        class: "%vm_dashboard.repository.user.orm.class%"
+    cem_user.repository.user.orm:
+        class: "%cem_user.repository.user.orm.class%"
         public: false
         factory: ["@doctrine.orm.entity_manager", "getRepository"]
         arguments:
-            - "%vm_dashboard.model.user.class%"
+            - "%cem_user.model.user.class%"
 
-    vm_dashboard.user_provider:
-      class: "%vm_dashboard.user_provider.class%"
-      arguments: ["@vm_dashboard.repository.user.orm"]
+    cem_user.user_provider:
+      class: "%cem_user.user_provider.class%"
+      arguments: ["@cem_user.repository.user.orm"]

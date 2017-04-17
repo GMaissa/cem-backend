@@ -65,7 +65,7 @@ class VmBookmarksController extends FOSRestController
     public function postAction(Request $request)
     {
         /* @var VmBookmarkRepositoryInterface $vmBookmarkRepo */
-        $vmBookmarkRepo = $this->get("vm_dashboard.bookmark.repository");
+        $vmBookmarkRepo = $this->get("cem_bookmark.bookmark.repository");
         $vmId           = $request->get('vmId');
         if (!$vmId) {
             throw new HttpException(
@@ -73,10 +73,10 @@ class VmBookmarksController extends FOSRestController
             );
         }
         /* @var VmRepositoryInterface $vmRepo */
-        $vmRepo = $this->get("vm_dashboard.vm.repository");
+        $vmRepo = $this->get("cem_virtual_machine.vm.repository");
 
         /* @var VmBookmarkFactoryInterface $bookmarkFactory */
-        $bookmarkFactory = $this->get("vm_dashboard.bookmark.factory");
+        $bookmarkFactory = $this->get("cem_bookmark.bookmark.factory");
 
         try {
             $vm       = $vmRepo->find($vmId);
@@ -118,9 +118,9 @@ class VmBookmarksController extends FOSRestController
     public function deleteAction($vmId)
     {
         /* @var VmBookmarkRepositoryInterface $vmBookmarkRepo */
-        $vmBookmarkRepo = $this->get("vm_dashboard.bookmark.repository");
+        $vmBookmarkRepo = $this->get("cem_bookmark.bookmark.repository");
         /* @var VmRepositoryInterface $vmRepo */
-        $vmRepo = $this->get("vm_dashboard.vm.repository");
+        $vmRepo = $this->get("cem_virtual_machine.vm.repository");
 
         try {
             $vm       = $vmRepo->find($vmId);
@@ -170,9 +170,9 @@ class VmBookmarksController extends FOSRestController
     public function getAction()
     {
         /* @var VmBookmarkRepositoryInterface $vmBookmarkRepo */
-        $vmBookmarkRepo = $this->get("vm_dashboard.bookmark.repository");
+        $vmBookmarkRepo = $this->get("cem_bookmark.bookmark.repository");
         /* @var VmRepositoryInterface $vmRepo */
-        $vmRepo = $this->get("vm_dashboard.vm.repository");
+        $vmRepo = $this->get("cem_virtual_machine.vm.repository");
         $user   = $this->getUser();
 
         $bookmarks = $vmBookmarkRepo->findAllByUser($user);

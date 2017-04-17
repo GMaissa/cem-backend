@@ -40,8 +40,8 @@ class CemVirtualMachineExtension extends Extension implements PrependExtensionIn
         $loader->load('services.yml');
 
         $container->setAlias(
-            'vm_dashboard.vm.repository',
-            sprintf("vm_dashboard.vm.repository.%s", $config['cloud_provider'])
+            'cem_virtual_machine.vm.repository',
+            sprintf("cem_virtual_machine.vm.repository.%s", $config['cloud_provider'])
         );
     }
 

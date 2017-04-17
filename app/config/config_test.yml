@@ -13,7 +13,7 @@ web_profiler:
     intercept_redirects: false
 
 parameters:
-    vm_dashboard.vm.ec2_client.class: CEM\Infrastructure\VirtualMachineBundle\Tester\Client\Ec2ClientMock
+    cem_virtual_machine.vm.ec2_client.class: CEM\Infrastructure\VirtualMachineBundle\Tester\Client\Ec2ClientMock
     database_name: vm_dashboard_test
     host.api: api.cem.local
     host.doc: developers.cem.local

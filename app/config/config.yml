@@ -132,7 +132,7 @@ fos_oauth_server:
     refresh_token_class: CEM\Infrastructure\OAuthBundle\Model\RefreshToken
     auth_code_class: CEM\Infrastructure\OAuthBundle\Model\AuthCode
     service:
-        user_provider: vm_dashboard.user_provider
+        user_provider: cem_user.user_provider
 
 cem_virtual_machine:
     notification: "%notification%"

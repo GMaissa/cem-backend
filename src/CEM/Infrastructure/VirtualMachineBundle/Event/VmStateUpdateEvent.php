@@ -16,5 +16,5 @@ namespace CEM\Infrastructure\VirtualMachineBundle\Event;
  */
 class VmStateUpdateEvent extends VmEventAbstract
 {
-    const NAME = 'vm_dashboard.vm.state_update';
+    const NAME = 'cem_virtual_machine.vm.state_update';
 }

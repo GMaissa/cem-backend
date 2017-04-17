@@ -63,7 +63,7 @@ class VmController extends FOSRestController
     public function getVmsAction()
     {
         /* @var VmRepositoryInterface $vmRepository */
-        $vmRepository = $this->get("vm_dashboard.vm.repository");
+        $vmRepository = $this->get("cem_virtual_machine.vm.repository");
         $vms          = $vmRepository->findBy(['vmTypes' => ['development']]);
 
         return (count($vms) ? $vms : null);
@@ -116,7 +116,7 @@ class VmController extends FOSRestController
     public function putVmsStateAction($vmId, $action)
     {
         /* @var VmRepositoryInterface $vmRepository */
-        $vmRepository = $this->get("vm_dashboard.vm.repository");
+        $vmRepository = $this->get("cem_virtual_machine.vm.repository");
 
         try {
             $virtualMachine = $vmRepository->find($vmId);

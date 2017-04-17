@@ -16,5 +16,5 @@ namespace CEM\Infrastructure\VirtualMachineBundle\Event;
  */
 class VmPostLoadEvent extends VmEventAbstract
 {
-    const NAME = 'vm_dashboard.vm.post_load';
+    const NAME = 'cem_virtual_machine.vm.post_load';
 }

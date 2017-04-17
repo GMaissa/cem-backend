@@ -1,29 +1,29 @@
 parameters:
-    vm_dashboard.bookmark.repository.db.class: CEM\Infrastructure\BookmarkBundle\Repository\VmBookmarkRepository
-    vm_dashboard.bookmark.factory.class: CEM\Domain\Bookmark\Factory\VmBookmarkFactory
-    vm_dashboard.bookmark.model.class: CEM\Domain\Bookmark\ValueObject\VmBookmark
-    vm_dashboard.bookmark.listener.vm_load.class: CEM\Infrastructure\BookmarkBundle\EventListener\VmLoadedListener
+    cem_bookmark.bookmark.repository.db.class: CEM\Infrastructure\BookmarkBundle\Repository\VmBookmarkRepository
+    cem_bookmark.bookmark.factory.class: CEM\Domain\Bookmark\Factory\VmBookmarkFactory
+    cem_bookmark.bookmark.model.class: CEM\Domain\Bookmark\ValueObject\VmBookmark
+    cem_bookmark.bookmark.listener.vm_load.class: CEM\Infrastructure\BookmarkBundle\EventListener\VmLoadedListener
 
 services:
-    vm_dashboard.bookmark.repository:
-        alias: vm_dashboard.bookmark.repository.db
+    cem_bookmark.bookmark.repository:
+        alias: cem_bookmark.bookmark.repository.db
 
-    vm_dashboard.bookmark.repository.db:
-        class: "%vm_dashboard.bookmark.repository.db.class%"
+    cem_bookmark.bookmark.repository.db:
+        class: "%cem_bookmark.bookmark.repository.db.class%"
         public: false
         factory: ["@doctrine.orm.entity_manager", "getRepository"]
         arguments:
-            - "%vm_dashboard.bookmark.model.class%"
+            - "%cem_bookmark.bookmark.model.class%"
 
-    vm_dashboard.bookmark.factory:
-        class: "%vm_dashboard.bookmark.factory.class%"
+    cem_bookmark.bookmark.factory:
+        class: "%cem_bookmark.bookmark.factory.class%"
         calls:
-            - [setBookmarkClass, ["%vm_dashboard.bookmark.model.class%"]]
+            - [setBookmarkClass, ["%cem_bookmark.bookmark.model.class%"]]
 
-    vm_dashboard.bookmark.listener.vm_load:
-        class: "%vm_dashboard.bookmark.listener.vm_load.class%"
+    cem_bookmark.bookmark.listener.vm_load:
+        class: "%cem_bookmark.bookmark.listener.vm_load.class%"
         calls:
             - [setSecurityTokenStorage, ["@security.token_storage"]]
-            - [setBookmarkRepository, ["@vm_dashboard.bookmark.repository"]]
+            - [setBookmarkRepository, ["@cem_bookmark.bookmark.repository"]]
         tags:
-            - { name: kernel.event_listener, event: vm_dashboard.vm.post_load, method: onVmPostLoad }
+            - { name: kernel.event_listener, event: cem_virtual_machine.vm.post_load, method: onVmPostLoad }

@@ -6,7 +6,7 @@ security:
 
     providers:
         app:
-            id: vm_dashboard.user_provider
+            id: cem_user.user_provider
 
     firewalls:
         dev:

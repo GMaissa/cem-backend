@@ -110,7 +110,7 @@ class UpdateVmStateCommand extends AbstractCommand
             );
         }
         $this->action = $action;
-        $this->vmRepository = $this->getContainer()->get("vm_dashboard.vm.repository");
+        $this->vmRepository = $this->getContainer()->get("cem_virtual_machine.vm.repository");
     }
 
     /**
