@@ -20,7 +20,7 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * Infrastructure OAuthBundle Dependency Injection Class
  */
-class InfraOAuthExtension extends Extension implements PrependExtensionInterface
+class CemOAuthExtension extends Extension implements PrependExtensionInterface
 {
     /**
      * {@inheritdoc}

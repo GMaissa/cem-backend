@@ -3,13 +3,13 @@
  * File part of the VirtualMachine Dashboard
  *
  * @category  CEM
- * @package   CEM.Domain.VirtualMachine
+ * @package  CEM.Domain.VirtualMachine
  * @author    Guillaume Maïssa <pro.g@maissa.fr>
  * @copyright 2017 Guillaume Maïssa
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace CEM\Infrastructure\BookmarkBundle\DependencyInjection;
+namespace CEM\Infrastructure\UserBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Resource\FileResource;
@@ -20,9 +20,9 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Yaml\Yaml;
 
 /**
- * VirtualMachine Infrastructure Bundle Dependency Injection Class
+ * Infrastructure UserBundle Dependency Injection Class
  */
-class InfraBookmarkExtension extends Extension implements PrependExtensionInterface
+class CemUserExtension extends Extension implements PrependExtensionInterface
 {
     /**
      * {@inheritdoc}
@@ -34,7 +34,7 @@ class InfraBookmarkExtension extends Extension implements PrependExtensionInterf
     }
 
     /**
-     * Loads DemoBundle configuration.
+     * Loads UserBundle configuration.
      *
      * @param ContainerBuilder $container
      */

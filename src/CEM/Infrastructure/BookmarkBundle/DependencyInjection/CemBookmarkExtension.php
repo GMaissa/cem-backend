@@ -3,13 +3,13 @@
  * File part of the VirtualMachine Dashboard
  *
  * @category  CEM
- * @package  CEM.Domain.VirtualMachine
+ * @package   CEM.Domain.VirtualMachine
  * @author    Guillaume Maïssa <pro.g@maissa.fr>
  * @copyright 2017 Guillaume Maïssa
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace CEM\Infrastructure\VirtualMachineBundle\DependencyInjection;
+namespace CEM\Infrastructure\BookmarkBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Resource\FileResource;
@@ -22,7 +22,7 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * VirtualMachine Infrastructure Bundle Dependency Injection Class
  */
-class InfraVirtualMachineExtension extends Extension implements PrependExtensionInterface
+class CemBookmarkExtension extends Extension implements PrependExtensionInterface
 {
     /**
      * {@inheritdoc}
@@ -34,12 +34,17 @@ class InfraVirtualMachineExtension extends Extension implements PrependExtension
     }
 
     /**
-     * Loads VirtualMachineBundle configuration.
+     * Loads DemoBundle configuration.
      *
      * @param ContainerBuilder $container
      */
     public function prepend(ContainerBuilder $container)
     {
+        $persistenceConfigFile = __DIR__ . '/../Resources/config/persistence.yml';
+        $config                = Yaml::parse(file_get_contents($persistenceConfigFile));
+        $container->prependExtensionConfig('doctrine', $config);
+        $container->addResource(new FileResource($persistenceConfigFile));
+
         $serializerConfigFile = __DIR__ . '/../Resources/config/serializer.yml';
         $config               = Yaml::parse(file_get_contents($serializerConfigFile));
         $container->prependExtensionConfig('jms_serializer', $config);

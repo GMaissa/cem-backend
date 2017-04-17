@@ -9,13 +9,13 @@
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace CEM\Infrastructure\VirtualMachineBundle;
+namespace CEM\Infrastructure\BookmarkBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Infrastructure VirtualMachineBundle definition class
+ * Infrastructure BookmarkBundle definition class
  */
-class InfraVirtualMachineBundle extends Bundle
+class CemBookmarkBundle extends Bundle
 {
 }

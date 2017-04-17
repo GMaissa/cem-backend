@@ -16,7 +16,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class InfraMailExtension extends Extension
+class CemMailExtension extends Extension
 {
     /**
      * {@inheritdoc}

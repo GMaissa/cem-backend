@@ -9,13 +9,13 @@
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace CEM\Infrastructure\UserBundle;
+namespace CEM\Infrastructure\OAuthBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Infrastructure UserBundle definition class
+ * Infrastructure OAuthBundle definition class
  */
-class InfraUserBundle extends Bundle
+class CemOAuthBundle extends Bundle
 {
 }

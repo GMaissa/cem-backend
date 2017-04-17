@@ -9,13 +9,13 @@
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace CEM\Infrastructure\BookmarkBundle;
+namespace CEM\Infrastructure\UserBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Infrastructure BookmarkBundle definition class
+ * Infrastructure UserBundle definition class
  */
-class InfraBookmarkBundle extends Bundle
+class CemUserBundle extends Bundle
 {
 }

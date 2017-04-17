@@ -9,13 +9,13 @@
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace CEM\Infrastructure\MailBundle;
+namespace CEM\Infrastructure\VirtualMachineBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Infrastructure MailBundle definition class
+ * Infrastructure VirtualMachineBundle definition class
  */
-class InfraMailBundle extends Bundle
+class CemVirtualMachineBundle extends Bundle
 {
 }
