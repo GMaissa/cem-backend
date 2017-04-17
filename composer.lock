@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd2c3611913cb08129c1c600a8615d1f",
+    "content-hash": "979a3c74a9afb0e360e506f30025c508",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -6067,7 +6067,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2017-04-12T14:14:56+00:00"
+            "time": "2017-04-12 14:14:56"
         },
         {
             "name": "theofidry/alice-bundle-extension",

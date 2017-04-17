@@ -13,7 +13,7 @@ services:
     depends_on:
       - mailcatcher
     volumes:
-      - "./engine/scripts:/scripts"
+      - "./config/docker/engine/scripts:/scripts"
     entrypoint: /scripts/entrypoint.sh
     command: php-fpm7.1 -F
     environment:

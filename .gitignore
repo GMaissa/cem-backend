@@ -21,7 +21,7 @@ composer.lock
 
 # Docker config
 .docker-sync
-config/docker/docker-compose-custom.yml
+docker-compose-custom.yml
 .env
 
 # CI
