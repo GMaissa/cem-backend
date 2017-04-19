@@ -16,6 +16,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 /**
  * Ui ConsoleBundle definition class
  */
-class UiConsoleBundle extends Bundle
+class CemConsoleBundle extends Bundle
 {
 }

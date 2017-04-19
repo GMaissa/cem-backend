@@ -26,9 +26,9 @@ class AppKernel extends Kernel
             new CEM\Infrastructure\OAuthBundle\CemOAuthBundle(),
             new CEM\Infrastructure\UserBundle\CemUserBundle(),
             new CEM\Infrastructure\VirtualMachineBundle\CemVirtualMachineBundle(),
-            new CEM\Ui\ApiBundle\UiApiBundle(),
-            new CEM\Ui\AppBundle\UiAppBundle(),
-            new CEM\Ui\ConsoleBundle\UiConsoleBundle(),
+            new CEM\Ui\ApiBundle\CemApiBundle(),
+            new CEM\Ui\ConsoleBundle\CemConsoleBundle(),
+            new Acme\AppBundle\AppBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test', 'ci'], true)) {

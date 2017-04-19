@@ -16,6 +16,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 /**
  * Ui ApiBundle definition class
  */
-class UiApiBundle extends Bundle
+class CemApiBundle extends Bundle
 {
 }

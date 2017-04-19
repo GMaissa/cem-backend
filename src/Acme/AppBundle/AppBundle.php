@@ -9,13 +9,13 @@
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace CEM\Ui\AppBundle;
+namespace Acme\AppBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * Ui AppBundle definition class
  */
-class UiAppBundle extends Bundle
+class AppBundle extends Bundle
 {
 }

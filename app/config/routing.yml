@@ -1,12 +1,12 @@
 app_oauth_server:
     host: "%host.oauth%"
-    resource: "@UiApiBundle/Resources/config/routing/oauth.yml"
+    resource: "@CemApiBundle/Resources/config/routing/oauth.yml"
 
 adb_api:
     type:     "rest"
     schemes:  ["http"]
     host:     "%host.api%"
-    resource: "@UiApiBundle/Resources/config/routing/api.yml"
+    resource: "@CemApiBundle/Resources/config/routing/api.yml"
 
 NelmioApiDocBundle:
     prefix:   "/doc"
@@ -15,5 +15,5 @@ NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
 
 app:
-    resource: "@UiAppBundle/Controller/DefaultController.php"
+    resource: "@AppBundle/Controller/DefaultController.php"
     type:     annotation

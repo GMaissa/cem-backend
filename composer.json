@@ -5,7 +5,8 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "CEM\\": "src/CEM"
+            "CEM\\": "src/CEM",
+            "Acme\\": "src/Acme"
         }
     },
     "autoload-dev": {

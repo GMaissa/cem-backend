@@ -1,6 +1,6 @@
 <?php
 
-namespace CEM\Ui\AppBundle\Controller;
+namespace Acme\AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Routing\Annotation\Route;
