@@ -28,7 +28,7 @@ services:
     cem_virtual_machine.vm.subscriber.notification:
         class: "%cem_virtual_machine.vm.subscriber.notification.class%"
         arguments:
-            - "%notification%"
+            - "%cem_virtual_machine.notification%"
         calls:
             - [setMailerService, ["@cem_mail.mail.service"]]
             - [setTplEngine, ["@templating"]]

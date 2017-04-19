@@ -34,7 +34,7 @@ class CemVirtualMachineExtension extends Extension implements PrependExtensionIn
         $configuration = new Configuration();
         $config        = $processor->processConfiguration($configuration, $configs);
 
-        $container->setParameter('cem_virtualmachine.notification', $config['notification']);
+        $container->setParameter('cem_virtual_machine.notification', $config['notification']);
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');

@@ -11,14 +11,14 @@
 
 namespace CEM\Infrastructure\VirtualMachineBundle\Tests\DependencyInjection;
 
-use CEM\Infrastructure\VirtualMachineBundle\DependencyInjection\InfraVirtualMachineExtension;
+use CEM\Infrastructure\VirtualMachineBundle\DependencyInjection\CemVirtualMachineExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 use Symfony\Component\Yaml\Parser;
 
-class InfraVirtualMachineExtensionTest extends TestCase
+class CemVirtualMachineExtensionTest extends TestCase
 {
     private $container;
     private $extension;
@@ -26,7 +26,7 @@ class InfraVirtualMachineExtensionTest extends TestCase
     public function setUp()
     {
         $this->container = $this->container = new ContainerBuilder(new ParameterBag());
-        $this->extension = new InfraVirtualMachineExtension();
+        $this->extension = new CemVirtualMachineExtension();
         $this->container->registerExtension($this->extension);
     }
 
@@ -35,7 +35,17 @@ class InfraVirtualMachineExtensionTest extends TestCase
      */
     public function testLoad($expectedResults)
     {
-        $this->extension->load([], $this->container);
+        $this->extension->load(
+            [
+                'cem_virtual_machine' => [
+                    'notification' => [
+                        'from' => 'from@test.com',
+                        'cc'   => 'cc@test.com',
+                    ]
+                ]
+            ],
+            $this->container
+        );
 
         foreach ($expectedResults['parameters'] as $name => $value) {
             $this->assertTrue(
