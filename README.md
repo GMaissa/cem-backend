@@ -3,9 +3,11 @@
  master | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/4380eb76-4bf4-4ab4-a2a7-288c48b1c9eb/mini.png)](https://insight.sensiolabs.com/projects/4380eb76-4bf4-4ab4-a2a7-288c48b1c9eb) | [![Scrutinizer](https://img.shields.io/scrutinizer/g/GMaissa/cem-backend/master.svg)](https://scrutinizer-ci.com/g/GMaissa/cem-backend/?branch=master) | [![Build Status](https://travis-ci.org/GMaissa/cem-backend.svg?branch=master)](https://travis-ci.org/GMaissa/cem-backend) | [![Code Coverage](https://scrutinizer-ci.com/g/GMaissa/cem-backend/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GMaissa/cem-backend/?branch=master)
 --------|---------|-------------|--------|----------
 
+
 ## About
 
 This repository provides the backend part to a Cloud Environments Management dashboard.
+
 
 ## Initial setup instructions
 
@@ -19,6 +21,7 @@ PROJECT_PORT_PREFIX  |                                           | Used to prefi
 DB_ROOT_PASSWORD     | dashboard                                 | MySQL password for root
 XDEBUG_REMOTE_HOST   |                                           | XDebug remote host address. If set, will trigger XDebug installation in the engine container. When using Docker for Mac you can set it to 10.254.254.254 with solution provided on https://goo.gl/sLmuRU
 XDEBUG_IDEKEY        |                                           | The IDE key used for debugging
+
 
 ## Launch instructions
 
@@ -41,3 +44,32 @@ Create the database schema :
 Import the dev / test fixtures :
 
     docker-compose exec --user www-data engine php bin/console doctrine:fixtures:load
+
+
+## Contributing
+
+In order to be accepted, your contribution needs to pass a few controls : 
+
+* PHP files should be valid
+* PHP files should follow the [PSR-2](http://www.php-fig.org/psr/psr-2/) standard
+* PHP files should be [phpmd](https://phpmd.org) and [phpcpd](https://github.com/sebastianbergmann/phpcpd)
+warning/error free
+
+To ease the validation process, install the [pre-commit framework](http://pre-commit.com)
+and install the repository pre-commit hook :
+
+    pre-commit install
+
+Finally, in order to homogenize commit messages across contributors (and to ease generation of the CHANGELOG),
+please apply this [git commit message hook](https://gist.github.com/GMaissa/f008b2ffca417c09c7b8)
+onto your local repository. 
+
+
+## License
+
+This bundle is released under the MIT license. See the complete license in the bundle:
+
+```bash
+LICENSE
+```
+
