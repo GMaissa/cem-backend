@@ -8,8 +8,9 @@
 
 This repository provides the backend part to a Cloud Environments Management dashboard.
 
+## Development 
 
-## Initial setup instructions
+### Development environmment setup
 
 Create your .env file from .env.dist and configure it :
 
@@ -23,7 +24,7 @@ XDEBUG_REMOTE_HOST   |                                           | XDebug remote
 XDEBUG_IDEKEY        |                                           | The IDE key used for debugging
 
 
-## Launch instructions
+### Develoment environment initialization
 
 Install the application dependencies :
 
@@ -45,6 +46,24 @@ Import the dev / test fixtures :
 
     docker-compose exec --user www-data engine php bin/console doctrine:fixtures:load
 
+
+### Running tests
+
+Install the dev dependencies :
+
+composer install --dev
+
+Run PHPUnit test suite :
+
+```bash
+php vendor/bin/phpunit
+```
+
+Run Behat tests :
+
+```bash
+docker-compose exec --user www-data engine php vendor/bin/behat
+```
 
 ## Contributing
 
