@@ -1,5 +1,5 @@
 {
-    "name": "g.maissa/cem-backend",
+    "name": "gmaissa/cem-backend",
     "description": "Virtual machines dashboard backend",
     "license": "proprietary",
     "type": "project",
@@ -21,10 +21,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/GMaissa/BehatContextsExtension.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/GMaissa/RedmineUserProviderBundle.git"
         }
     ],
     "require": {
