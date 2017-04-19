@@ -6,16 +6,13 @@
     "autoload": {
         "psr-4": {
             "CEM\\": "src/CEM"
-        },
-        "classmap": [
-            "app/AppKernel.php",
-            "app/AppCache.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
             "CEM\\Tests\\": "tests/"
-        }
+        },
+        "classmap": ["app/AppKernel.php", "app/AppCache.php"]
     },
     "repositories": [
         {
@@ -62,6 +59,18 @@
         "theofidry/alice-bundle-extension": "^1.3",
         "doctrine/doctrine-fixtures-bundle": "^2.3",
         "gmaissa/behat-contexts-extension": "dev-master"
+    },
+    "replace": {
+        "gmaissa/cem-domaine-bookmark": "self.version",
+        "gmaissa/cem-domaine-user": "self.version",
+        "gmaissa/cem-domaine-virtualmachine": "self.version",
+        "gmaissa/cem-infra-bookmark-bundle": "self.version",
+        "gmaissa/cem-infra-mail-bundle": "self.version",
+        "gmaissa/cem-infra-oauth-bundle": "self.version",
+        "gmaissa/cem-infra-user-bundle": "self.version",
+        "gmaissa/cem-infra-virtualmachine-bundle": "self.version",
+        "gmaissa/cem-ui-api-bundle": "self.version",
+        "gmaissa/cem-ui-console-bundle": "self.version"
     },
     "scripts": {
         "build-params": [
