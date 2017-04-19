@@ -1,14 +1,15 @@
 <?php
 /**
- * This file is part of the GMaissa Behat Context Extension
+ * File part of the VirtualMachine Dashboard
  *
- * @package   CEM
- * @author    Guillaume Maïssa <guillaume@maissa.fr>
+ * @category  CEM
+ * @package   CEM.Behat
+ * @author    Guillaume Maïssa <pro.g@maissa.fr>
  * @copyright 2017 Guillaume Maïssa
- * @license   https://opensource.org/licenses/MIT MIT
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace CEM\Tests\Acceptance\Context;
+namespace CEM\Behat\Context;
 
 use CEM\Ui\ConsoleBundle\Command\UpdateVmStateCommand;
 use Behat\Gherkin\Node\PyStringNode;

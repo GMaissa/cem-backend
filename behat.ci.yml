@@ -20,7 +20,7 @@ default:
             contexts:
                 - Fidry\AliceBundleExtension\Context\Doctrine\AliceORMContext
                 - Behat\MinkExtension\Context\MinkContext
-                - CEM\Tests\Acceptance\Context\MailContext
+                - CEM\Behat\Context\MailContext
                 - gm:context:oauth:
                     serverUrl: http://oauth.cem.local:8080/v2/token
                     clientId: 1_2s9gmnszs82so0c0so440k4o44g0cgs4oscsk884g0ww04ggko
@@ -31,5 +31,5 @@ default:
             paths:
                 - %paths.base%/tests/Acceptance/features/Commands
             contexts:
-                - CEM\Tests\Acceptance\Context\CommandContext
-                - CEM\Tests\Acceptance\Context\MailContext
+                - CEM\Behat\Context\CommandContext
+                - CEM\Behat\Context\MailContext
