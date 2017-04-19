@@ -3,10 +3,10 @@
  * File part of the VirtualMachine Dashboard
  *
  * @category  CEM
- * @package  CEM.Domain.VirtualMachine
+ * @package   CEM.Infrastructure.MailBundle
  * @author    Guillaume Maïssa <pro.g@maissa.fr>
  * @copyright 2017 Guillaume Maïssa
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @license   https://opensource.org/licenses/MIT The MIT License (MIT)
  */
 
 namespace CEM\Infrastructure\MailBundle\DependencyInjection;
@@ -16,6 +16,9 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
+/**
+ * Infrastructure MailBundle Dependency Injection Class
+ */
 class CemMailExtension extends Extension
 {
     /**

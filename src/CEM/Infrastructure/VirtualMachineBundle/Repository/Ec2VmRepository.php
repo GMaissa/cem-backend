@@ -3,10 +3,10 @@
  * File part of the VirtualMachine Dashboard
  *
  * @category  CEM
- * @package  CEM.Domain.VirtualMachine
+ * @package   CEM.Infrastructure.VirtualMachineBundle
  * @author    Guillaume Maïssa <pro.g@maissa.fr>
  * @copyright 2017 Guillaume Maïssa
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @license   https://opensource.org/licenses/MIT The MIT License (MIT)
  */
 
 namespace CEM\Infrastructure\VirtualMachineBundle\Repository;
@@ -20,7 +20,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use CEM\Infrastructure\VirtualMachineBundle\Event\VmStateUpdateEvent;
 
 /**
- * Virtual machine repository class
+ * Ec2 virtual machine repository class
  */
 class Ec2VmRepository implements VmRepositoryInterface
 {

@@ -3,10 +3,10 @@
  * File part of the VirtualMachine Dashboard
  *
  * @category  CEM
- * @package  CEM.Domain.VirtualMachine
+ * @package   CEM.Infrastructure.OAuthBundle
  * @author    Guillaume Maïssa <pro.g@maissa.fr>
  * @copyright 2017 Guillaume Maïssa
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @license   https://opensource.org/licenses/MIT The MIT License (MIT)
  */
 
 namespace CEM\Infrastructure\OAuthBundle\DataFixtures\ORM;
@@ -15,6 +15,9 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use CEM\Infrastructure\OAuthBundle\Model\Client;
 
+/**
+ * OAuth test data fixtures
+ */
 class LoadClientData implements FixtureInterface
 {
     /**
