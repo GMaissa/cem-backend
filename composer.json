@@ -5,12 +5,12 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "CEM\\": "src/CEM",
-            "Acme\\": "src/Acme"
+            "CEM\\": "src/CEM"
         }
     },
     "autoload-dev": {
         "psr-4": {
+            "Acme\\": "src/Acme",
             "CEM\\Tests\\": "tests/"
         },
         "classmap": ["app/AppKernel.php", "app/AppCache.php"]
