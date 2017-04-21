@@ -1,6 +1,6 @@
 <?php
 /**
- * File part of the VirtualMachine Dashboard
+ * File part of the Cloud Environments Management Backend
  *
  * @category  CEM
  * @package   CEM.Infrastructure.MailBundle
