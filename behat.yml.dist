@@ -10,12 +10,12 @@ default:
         Behatch\Extension: ~
         GMaissa\BehatContextsExtension: ~
         Fidry\AliceBundleExtension\Extension:
-            fixtures_base_path: %paths.base%/tests/Acceptance/fixtures
+            fixtures_base_path: %paths.base%/tests/Functional/fixtures
 
     suites:
         api:
             paths:
-                - %paths.base%/tests/Acceptance/features/API
+                - %paths.base%/tests/Functional/features/API
             contexts:
                 - Fidry\AliceBundleExtension\Context\Doctrine\AliceORMContext
                 - Behat\MinkExtension\Context\MinkContext
@@ -28,7 +28,7 @@ default:
                 - behatch:context:json
         commands:
             paths:
-                - %paths.base%/tests/Acceptance/features/Commands
+                - %paths.base%/tests/Functional/features/Commands
             contexts:
                 - CEM\Behat\Context\CommandContext
                 - CEM\Behat\Context\MailContext
