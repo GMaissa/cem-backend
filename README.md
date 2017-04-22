@@ -26,37 +26,49 @@ XDEBUG_IDEKEY        |                                           | The IDE key u
 
 ### Develoment environment initialization
 
-Install the application dependencies :
-
-    php composer.phar install
-
 If using [Docker Sync](http://docker-sync.io), launch de sync daemon :
 
-    docker-sync-daemon start
+```bash
+docker-sync-daemon start
+```
     
 Start the Docker Compose stack :
 
-    docker-compose up --build -d
+```bash
+docker-compose up --build -d
+```
+
+Install the application dependencies :
+
+```bash
+docker-compose exec --user www-data engine php composer.phar install
+```
 
 Create the database schema :
 
-    docker-compose exec --user www-data engine php bin/console doctrine:schema:create
+```bash
+docker-compose exec --user www-data engine php bin/console doctrine:schema:create
+```
     
 Import the dev / test fixtures :
 
-    docker-compose exec --user www-data engine php bin/console doctrine:fixtures:load
+```bash
+docker-compose exec --user www-data engine php bin/console doctrine:fixtures:load
+```
 
 
 ### Running tests
 
 Install the dev dependencies :
 
-composer install --dev
+```bash
+docker-compose exec --user www-data engine php composer.phar install --dev
+```
 
 Run PHPUnit test suite :
 
 ```bash
-php vendor/bin/phpunit
+docker-compose exec --user www-data engine php vendor/bin/phpunit
 ```
 
 Run Behat tests :
@@ -77,7 +89,9 @@ warning/error free
 To ease the validation process, install the [pre-commit framework](http://pre-commit.com)
 and install the repository pre-commit hook :
 
-    pre-commit install
+```bash
+pre-commit install
+```
 
 Finally, in order to homogenize commit messages across contributors (and to ease generation of the CHANGELOG),
 please apply this [git commit message hook](https://gist.github.com/GMaissa/f008b2ffca417c09c7b8)
