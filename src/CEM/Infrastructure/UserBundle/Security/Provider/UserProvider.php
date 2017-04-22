@@ -77,7 +77,7 @@ class UserProvider implements UserProviderInterface
         $obj = new \ReflectionClass($class);
 
         return (
-            $obj->getName() == $this->userRepository->getClassName() ||
+            $obj->name == $this->userRepository->getClassName() ||
             $obj->isSubclassOf($this->userRepository->getClassName())
         );
     }
