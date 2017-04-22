@@ -32,11 +32,21 @@ class MailerService
         $this->mailer = $mailer;
     }
 
+    /**
+     * Create the message object to be sent
+     *
+     * @return object
+     */
     public function createMessage()
     {
         return $this->mailer->createMessage();
     }
 
+    /**
+     * Send the provided message
+     *
+     * @param object $message
+     */
     public function send($message)
     {
         $this->mailer->send($message);

@@ -34,6 +34,9 @@ class UserProvider implements UserProviderInterface
         $this->userRepository = $userRepository;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function loadUserByUsername($username)
     {
         $user = $this->userRepository->findOneBy(array('username' => $username));
@@ -48,6 +51,9 @@ class UserProvider implements UserProviderInterface
         return $user;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function refreshUser(UserInterface $user)
     {
         $class = get_class($user);
@@ -63,6 +69,9 @@ class UserProvider implements UserProviderInterface
         return $this->userRepository->find($user->getId());
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function supportsClass($class)
     {
         $obj = new \ReflectionClass($class);
