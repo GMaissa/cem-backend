@@ -217,19 +217,19 @@ class Ec2VmRepository implements VmRepositoryInterface
     /**
      * Retrieve Ec2 instances
      *
-     * @param array        $formattedFilters
-     * @param array        $virtualMachinesTmp
-     * @param string/false $nextToken
+     * @param array       $formattedFilters
+     * @param array       $virtualMachinesTmp
+     * @param string|null $nextToken
      *
      * @return array
      */
     private function getInstances(
         $formattedFilters = array(),
         $virtualMachinesTmp = array(),
-        $nextToken = false
+        $nextToken = null
     ): array {
         $filters = $formattedFilters;
-        if ($nextToken) {
+        if (!is_null($nextToken)) {
             $filters = array_merge($formattedFilters, ['NextToken' => $nextToken]);
         }
 
