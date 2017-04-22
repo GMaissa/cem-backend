@@ -1,6 +1,6 @@
 # Cloud Environments Management Backend
 
- master | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/4380eb76-4bf4-4ab4-a2a7-288c48b1c9eb/mini.png)](https://insight.sensiolabs.com/projects/4380eb76-4bf4-4ab4-a2a7-288c48b1c9eb) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GMaissa/cem-backend/badges/quality-score.png?b=master&s=0a73702d5cd30dfd496886ef38f2d307c2893d8b)](https://scrutinizer-ci.com/g/GMaissa/cem-backend/?branch=master) | [![Build Status](https://travis-ci.org/GMaissa/cem-backend.svg?branch=master)](https://travis-ci.org/GMaissa/cem-backend) | [![Code Coverage](https://scrutinizer-ci.com/g/GMaissa/cem-backend/badges/coverage.png?b=master&s=a22ce3ad349de0d4bbc26a2f44ed6916589d9978)](https://scrutinizer-ci.com/g/GMaissa/cem-backend/?branch=master)
+ master | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/76b75baa-ce4b-434b-b7df-7adbd85c857b/mini.png)](https://insight.sensiolabs.com/projects/76b75baa-ce4b-434b-b7df-7adbd85c857b) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GMaissa/cem-backend/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GMaissa/cem-backend/?branch=master) | [![Build Status](https://travis-ci.org/GMaissa/cem-backend.svg?branch=master)](https://travis-ci.org/GMaissa/cem-backend) | [![Code Coverage](https://scrutinizer-ci.com/g/GMaissa/cem-backend/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GMaissa/cem-backend/?branch=master)
 --------|---------|-------------|--------|----------
 
 
