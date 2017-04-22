@@ -13,10 +13,8 @@ namespace CEM\Infrastructure\VirtualMachineBundle\Tests\DependencyInjection;
 
 use CEM\Infrastructure\VirtualMachineBundle\DependencyInjection\CemVirtualMachineExtension;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
-use Symfony\Component\Yaml\Parser;
 
 class CemVirtualMachineExtensionTest extends TestCase
 {

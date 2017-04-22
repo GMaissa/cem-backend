@@ -79,6 +79,7 @@ class MailContext implements KernelAwareContext
             throw new Exception(sprintf('The message "%s" has been sent.', $messageId));
         }
     }
+
     /**
      * @Then the mail recipients should include:
      */
