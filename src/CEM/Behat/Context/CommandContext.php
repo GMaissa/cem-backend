@@ -106,7 +106,7 @@ class CommandContext implements KernelAwareContext
      */
     private function getTester(Command $command = null)
     {
-        if ($this->tester === null) {
+        if ($this->tester === null && !is_null($command)) {
             $this->tester = new CommandTester($command);
         }
 
