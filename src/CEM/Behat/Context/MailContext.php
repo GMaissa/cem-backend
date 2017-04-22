@@ -52,7 +52,7 @@ class MailContext implements KernelAwareContext
             $recipients[] = [$recipient];
         }
         $this->mailShouldHaveBeenSent($messageId);
-        $this->theMailRecipentsShouldInclude(new TableNode($recipients));
+        $this->theMailRecipientsShouldInclude(new TableNode($recipients));
         $this->theMailBodyShouldBe($body);
     }
 
